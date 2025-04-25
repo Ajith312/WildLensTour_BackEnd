@@ -7,6 +7,7 @@ dotenv.config();
 
 export const userRegister = async (req, res) => {
   const { userName, email, password } = req.body;
+  console.log(req.body)
   try {
     const user = await User.findOne({ email });
     if (user) {
@@ -280,3 +281,20 @@ export const changePassword = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
+export const getAllUsers = async(req,res)=>{
+
+  try {
+    const users = await User.find()
+    return res.status(200).json({
+      messege:"Users Details Send Succesfully",
+      data:users
+    })
+
+    
+  } catch (error) {
+    console.log(error)
+    
+  }
+
+}

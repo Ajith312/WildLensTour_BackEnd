@@ -28,7 +28,7 @@ const userSchema = mongoose.Schema( {
     OTPExpiry: {
         type: Date,
         default: null,
-    },
+    },  
     activationStatus: {
         type: Boolean,
         default: false,
